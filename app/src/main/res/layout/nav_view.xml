@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="31pt"
+    android:layout_width="match_parent">
+
+
+    <item
+        android:id="@+id/getGlobHome"
+        android:enabled="true"
+        tools:weight="0.25"
+        android:textSize="15sp"
+        android:title="@string/global_n_home"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <item
+        android:id="@+id/getMe"
+        android:enabled="true"
+        tools:weight="0.25"
+        android:icon="@drawable/ic_person_pin_black_24dp"
+        android:textSize="15sp"
+        android:title="@string/user_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <item
+        android:id="@+id/tweetMe"
+        android:enabled="true"
+        tools:weight="0.25"
+        android:icon="@drawable/ic_tweet_msg"
+        android:textSize="15sp"
+        android:title="@string/send_tweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <item
+        android:id="@+id/stepHistory"
+        android:enabled="true"
+        tools:weight="0.25"
+        android:icon="@drawable/ic_stat_name"
+        android:textSize="15sp"
+        android:title="@string/step_nhistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</menu>

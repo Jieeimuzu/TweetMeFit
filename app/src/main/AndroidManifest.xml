@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.james.tweetmefit">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.ACCESS_FINE_LOCATION"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.write_external_storage"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".startPage"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="callback"
+                    android:scheme="tweetmefit" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".stepService"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="false"
+            android:isolatedProcess="false"
+            android:process=":stepServiceProcess"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.example.james.tweetmefit" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".stepReciver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartServiceWhenStopped">
+            <intent-filter>
+                <action android:name="restartStepper" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".webView"
+            android:label="@string/title_activity_web_view" />
+        <activity
+            android:name=".userHome"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance" />
+        <activity android:name=".stepHistory" />
+
+        <activity
+            android:name=".tweetText"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+    </application>
+
+</manifest>
