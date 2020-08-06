@@ -188,11 +188,7 @@ public class tweetText extends AppCompatActivity {
                 }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
+            } 
 
             return null;
         }

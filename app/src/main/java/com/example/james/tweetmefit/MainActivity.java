@@ -372,8 +372,6 @@ public class MainActivity extends AppCompatActivity {
                     params.put("Authorization", twitInt.getHome2("https://api.twitter.com/1.1/statuses/home_timeline.json", "max_id=" + String.valueOf(max_id), getSharedPreferences(en.encrypt("Keys"), MODE_PRIVATE), getApplicationContext()));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
                 }
                 return params;
             }
@@ -497,8 +495,6 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     params.put("Authorization", twitInt.getHome2("https://api.twitter.com/1.1/statuses/home_timeline.json", null, getSharedPreferences(en.encrypt("Keys"), MODE_PRIVATE), getApplicationContext()));
                 } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
                 return params;
