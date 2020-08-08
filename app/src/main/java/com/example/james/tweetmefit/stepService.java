@@ -17,6 +17,7 @@ import android.os.IBinder;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -70,6 +71,13 @@ public class stepService extends Service implements SensorEventListener {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         Log.e("Step Start", "Start");
+        NotificationCompat.Builder noti = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_tweet_msg)
+                .setContentTitle("Start service")
+                .setContentText("Service has started and if logging steps.")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManagerCompat notifyMan  = NotificationManagerCompat.from(this);
+
 
         this.name = getSharedPreferences(en.encrypt("Steps"), MODE_PRIVATE).getInt(strDate, 0);
 
